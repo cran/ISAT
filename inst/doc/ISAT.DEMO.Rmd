@@ -1,0 +1,38 @@
+---
+title: "ISAT DEMO"
+author: "Minyu Wang"
+date: "07/08/2018"
+output: html_vignette
+vignette: >
+  %\VignetteIndexEntry{ISAT DEMO}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+## Reading the dataset
+
+This is a DEMO example, based on one image. The 20x images were acquired on the Vectra system of PerkinElmer and analyzed in inForm (>=2.2.0). There are seven different phenotypes present in this example: 'Melanoma','CD8 + T cell','CD4+ T cell','T regulatory cell','PDL1+ cell','CD3+ T cell' and 'other'. 
+
+
+
+```{r "setup", include=FALSE}
+require("knitr")
+opts_knit$set(root.dir = ".")
+```
+
+```{r load library}
+library(ISAT)
+```
+
+
+```{r demo}
+      filename =c("DEMO_cell_seg_data.txt")
+      cell_names = c( 'Melanoma','CD8 + T cell', 'CD4+ T cell', 'T regulatory cell','PDL1+ cell', 'CD3+ T cell','other')
+#calculate distance result for the file
+      distance_result = findNNs(filename,cell_names)
+      
+      
+#calculate density result for the file
+      density_result=getFileCount(filename)
+      
+```
